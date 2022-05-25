@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/cinza_claro">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="@color/branco"
+                card_view:cardCornerRadius="3dp"
+                card_view:cardElevation="5dp"
+                card_view:cardPreventCornerOverlap="true"
+                card_view:cardUseCompatPadding="true"
+                android:layout_marginTop="4dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="5dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="right"
+                        android:id="@+id/area_novo_ponto">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1">
+                            <TextView
+                                style="@style/txt.escuro"
+                                android:text="Ano:" />
+                            <com.registraponto.componentes.ComboBox
+                                android:id="@+id/ano"
+                                style="@style/combo"
+                                android:nextFocusDown="@+id/mes"
+                                android:spinnerMode="dialog"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1">
+                            <TextView
+                                style="@style/txt.escuro"
+                                android:text="Mês:" />
+                            <com.registraponto.componentes.ComboBox
+                                android:id="@+id/mes"
+                                style="@style/combo"
+                                android:nextFocusDown="@+id/dia"
+                                android:spinnerMode="dialog"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1">
+                            <TextView
+                                style="@style/txt.escuro"
+                                android:text="Horas/Mês:" />
+                            <TextView
+                                style="@style/txt.escuro.titulo"
+                                android:id="@+id/hora_mes"
+                                android:text="0"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1">
+                            <TextView
+                                style="@style/txt.escuro"
+                                android:text="Falta no Mês:" />
+                            <TextView
+                                style="@style/txt.escuro.titulo"
+                                android:id="@+id/falta_mes"
+                                android:text="0"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1">
+                            <TextView
+                                style="@style/txt.escuro"
+                                android:text="Crédito Mês:" />
+                            <TextView
+                                style="@style/txt.escuro.titulo"
+                                android:id="@+id/credito_mes"
+                                android:text="0"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/item_lista_de_itens" android:id="@+id/cabecalho"/>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:listitem="@layout/item_lista_de_itens"
+                        android:id="@+id/lista_de_itens"/>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>
